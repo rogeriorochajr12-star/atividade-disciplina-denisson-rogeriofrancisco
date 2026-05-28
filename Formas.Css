@@ -1,0 +1,22 @@
+
+link
+
+.quadrado {
+    width: 100px;
+    height: 100px;
+    background-color: red;}
+
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: blue;}
+
+    .triangulo {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid aquamarine;
+    }
