@@ -10,7 +10,7 @@
     <main>
         <h1>Cadastro</h1>
 
-        <form action="#" method="post">
+        <form action="insere.php" method="post">
             <label for="usuario">Nome de usuário:</label>
             <input type="text" id="usuario" name="usuario" required>
 
@@ -18,6 +18,9 @@
 
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" minlength="8" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
             <br><br>
 
