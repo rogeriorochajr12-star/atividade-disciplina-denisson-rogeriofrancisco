@@ -11,8 +11,8 @@
         <h1>Cadastro</h1>
 
         <form action="insere.php" method="post">
-            <label for="usuario">Nome de usuário:</label>
-            <input type="text" id="usuario" name="usuario" required>
+            <label for="nome">Nome de usuário:</label>
+            <input type="text" nome="usuario" name="nome" required>
 
             <br><br>
 

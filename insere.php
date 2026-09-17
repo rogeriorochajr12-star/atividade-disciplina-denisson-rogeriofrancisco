@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+require_once 'pessoa.php'; //inclui o arquivo pessoa.php
 
 //verifica se existe conexão com bd, caso não tenta criar uma nova
 $conexao = mysqli_connect("localhost", "francisco", "silvana00") //porta usuário, senha
