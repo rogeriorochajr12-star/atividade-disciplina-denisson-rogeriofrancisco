@@ -11,7 +11,7 @@ class Pessoa {
         $this->senha = $senha;
         $this->email = $email;
     }
-
+   // Metodo Cadastrar
     public function inserir(){
         try {
             $pdo = Conexao::getConexao();
@@ -28,6 +28,21 @@ class Pessoa {
         } catch (PDOException $e) {
             return false;
         }
+
+    }
+          // Metodo Consultar Todos
+            public static function listarTodos() {
+             try {   
+                $pdo = Conexao::getConexao();
+                $sql = "SELECT * FROM pessoa";
+                $stmt = $pdo->query($sql);
+
+
+                // Retorna um array com todos os registros
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return [];
+            }
     }
 }
 ?>
