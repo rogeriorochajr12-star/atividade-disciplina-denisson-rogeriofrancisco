@@ -1,28 +1,25 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
-require_once 'pessoa.php'; //inclui o arquivo pessoa.php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-//verifica se existe conexão com bd, caso não tenta criar uma nova
-$conexao = mysqli_connect("localhost", "francisco", "silvana00") //porta usuário, senha
-or die("Erro ao conectar com o banco de dados"); //caso não consiga conectar mostra a mensagem de erro mostrada na conexão
+require_once 'pessoa.php';
 
-$select_db = mysqli_select_db($conexao, "novo_e_belo"); //seleciona o banco de dados
+$nome = $_POST['nome'] ?? '';
+$senha = $_POST['senha'] ?? '';
+$email = $_POST['email'] ?? '';
 
-//Abaixo atribuídos os valores provenientes do formulário pelo método POST
-$nome = $_POST["nome"];
-$senha = $_POST["senha"];
-$email = $_POST["email"];
+if ($nome === '' || $senha === '' || $email === '') {
+    echo 'Erro: nome, senha e email são obrigatórios.';
+    exit;
+}
 
-$string_sql = "INSERT INTO Cadastro (id, nome, senha, email) VALUES (null, '$nome', '$senha', '$email')"; //comando SQL para inserir
+$pessoa = new Pessoa($nome, $senha, $email);
 
-mysqli_query($conexao, $string_sql); //Realiza a consulta
-
-if(mysqli_affected_rows($conexao) == 1){ //verifica se a consulta foi realizada com sucesso
-    echo "<p>Dados inseridos com sucesso!</p>"; //mensagem de sucesso
-    echo '<a href="index.php">Voltar</a>'; //link para voltar a página inicial
+if ($pessoa->inserir()) {
+    echo '<p>Dados inseridos com sucesso!</p>';
+    echo '<a href="index.php">Voltar</a>';
 } else {
-    echo "Erro, não foi possível inserir no banco de dados";
-    
-    mysqli_close($conexao); //fecha a conexão com o banco de dados
+    echo 'Erro, não foi possível inserir no banco de dados';
 }
 ?>

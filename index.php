@@ -12,7 +12,7 @@
 
         <form action="insere.php" method="post">
             <label for="nome">Nome de usuário:</label>
-            <input type="text" nome="usuario" name="nome" required>
+            <input type="text" id="nome" name="nome" required>
 
             <br><br>
 
